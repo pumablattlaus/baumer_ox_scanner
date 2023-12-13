@@ -67,13 +67,13 @@ public:
             ROS_INFO("NOT using UDP.");
         }
         // Main loop to read and publish laser scan data
-        ros::Rate loop_rate(5); // 50 Hz, adjust as necessary
+        ros::Rate loop_rate(400); // 50 Hz, adjust as necessary
         while (ros::ok() && !gSignalStatus) {
             sensor_msgs::PointCloud point_msg;
             // Fill in PointCloud message
             // For example:
             // point_msg.header.stamp = ros::Time::now();
-            point_msg.header.frame_id = "laser_frame";
+            point_msg.header.frame_id = "laser_scanner";
             // Fill in other necessary fields such as angle_min, angle_max, range_min, range_max, etc.
             // ...
 
@@ -200,8 +200,6 @@ private:
         
         // sensor_msgs::ChannelFloat32 channel;
         // channel.name = "intensity";
-
-        ROS_INFO_STREAM("xStart:" << profile.XStart);
 
         for (std::size_t i = 0; i < profile.Length; i++)
         {
