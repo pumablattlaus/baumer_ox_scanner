@@ -1,0 +1,50 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/rosmatch/catkin_optimize_collision/devel/include/**",
+        "/home/rosmatch/catkin_hee/devel/include/**",
+        "/home/rosmatch/catkin_ws_recker/devel/include/**",
+        "/home/rosmatch/catkin_ws_lurz/devel/include/**",
+        "/home/rosmatch/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/rosmatch/TUM/scanner_ws/src/baumer_pkg/include/**",
+        "/home/rosmatch/catkin_ws/src/match_mobile_robotics/ur/ur_ros_driver/controller_stopper/include/**",
+        "/home/rosmatch/catkin_hee/src/Additive_Manufacturing/costmap_layers/include/**",
+        "/home/rosmatch/catkin_hee/src/Additive_Manufacturing/DynamixelSDK/ros/dynamixel_sdk/include/**",
+        "/home/rosmatch/catkin_hee/src/Additive_Manufacturing/dynamixel-workbench/dynamixel_workbench_controllers/include/**",
+        "/home/rosmatch/catkin_hee/src/Additive_Manufacturing/dynamixel-workbench/dynamixel_workbench_operators/include/**",
+        "/home/rosmatch/catkin_hee/src/Additive_Manufacturing/dynamixel-workbench/dynamixel_workbench_toolbox/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/mir/mir_submodules/ewellix_tlt/include/**",
+        "/home/rosmatch/catkin_ws_lurz/src/match_mobile_robotics/panda/franka_ros/franka_control/include/**",
+        "/home/rosmatch/catkin_ws_lurz/src/match_mobile_robotics/panda/franka_ros/franka_example_controllers/include/**",
+        "/home/rosmatch/catkin_ws_lurz/src/match_mobile_robotics/panda/franka_ros/franka_gripper/include/**",
+        "/home/rosmatch/catkin_ws_lurz/src/match_mobile_robotics/panda/franka_ros/franka_hw/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/submodules/gazebo_ros_link_attacher/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/submodules/match_path_planning/local_plan_follower/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/match_gazebo/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/redundancy_res_collision/optimization_algo/include/**",
+        "/home/rosmatch/catkin_hee/src/match_mobile_robotics/panda/panda_controllers_extended/include/**",
+        "/home/rosmatch/Qualisys_ws/src/qualisys_ros/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/ur/robotiq/robotiq_gazebo/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/submodules/match_path_planning/splined_voronoi/splined_voronoi/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/ur/ur_calibrated_pose_pub/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/ur/ur_ros_driver/ur_calibration/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/ur/ur_controllers_extended/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/ur/universal_robot/ur_kinematics/include/**",
+        "/home/rosmatch/catkin_optimize_collision/src/match_mobile_robotics/ur/ur_ros_driver/ur_robot_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

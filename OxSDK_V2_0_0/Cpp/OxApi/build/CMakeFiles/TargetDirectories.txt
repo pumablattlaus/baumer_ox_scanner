@@ -1,0 +1,3 @@
+/home/rosmatch/TUM/scanner_ws/src/baumer_pkg/OxSDK_V2_0_0/Cpp/OxApi/build/CMakeFiles/rebuild_cache.dir
+/home/rosmatch/TUM/scanner_ws/src/baumer_pkg/OxSDK_V2_0_0/Cpp/OxApi/build/CMakeFiles/edit_cache.dir
+/home/rosmatch/TUM/scanner_ws/src/baumer_pkg/OxSDK_V2_0_0/Cpp/OxApi/build/CMakeFiles/oxapiexamples.dir

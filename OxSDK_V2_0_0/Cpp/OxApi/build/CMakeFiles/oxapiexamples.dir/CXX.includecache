@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rosmatch/TUM/scanner_ws/src/baumer_pkg/OxSDK_V2_0_0/Cpp/OxApi/example/src/oxapiexamples.cpp
+OXApi/Ox.h
+-
+vector
+-
+iostream
+-
+iomanip
+-
+algorithm
+-
+thread
+-
+chrono
+-
+stdio.h
+-
+fstream
+-
+csignal
+-
+sstream
+-
+
