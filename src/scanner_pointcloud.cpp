@@ -41,9 +41,14 @@ public:
         bool udp; // use UDP protocol
         nh.param<bool>("udp", udp, false);
 
+        std::string frame_id;
+        nh.param<std::string>("frame_id", frame_id, "laser_scanner");
+        std::string topic_name;
+        nh.param<std::string>("topic_name", topic_name, "point_cloud");
+
         // Create a publisher object
         // laser_scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 50);
-        point_cloud_pub = nh.advertise<sensor_msgs::PointCloud>("point_cloud", 1);
+        point_cloud_pub = nh.advertise<sensor_msgs::PointCloud>(topic_name, 1);
         test_pub = nh.advertise<std_msgs::Float32>("test", 10);
 
         if (udp){
@@ -73,7 +78,7 @@ public:
             // Fill in PointCloud message
             // For example:
             // point_msg.header.stamp = ros::Time::now();
-            point_msg.header.frame_id = "laser_scanner";
+            point_msg.header.frame_id = frame_id;
             // Fill in other necessary fields such as angle_min, angle_max, range_min, range_max, etc.
             // ...
 

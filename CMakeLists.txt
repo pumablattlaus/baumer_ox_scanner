@@ -162,7 +162,7 @@ add_executable(scanner_pointcloud src/scanner_pointcloud.cpp)
 #   ${catkin_LIBRARIES}
 # )
 target_link_libraries(oxapiexamples ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} )
-target_link_libraries(ox_scanner ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} )
+target_link_libraries(scanner_pointcloud ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} )
 
 #############
 ## Install ##
