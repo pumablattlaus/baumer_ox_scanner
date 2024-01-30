@@ -5,6 +5,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
+- [Problem Solving](#problems)
 
 ## About <a name = "about"></a>
 
@@ -47,3 +48,9 @@ Just run the node:
 ```bash
     rosrun baumer_ox_scanner scanner_pointcloud
 ```
+
+## Problem Solving <a name = "problems"></a>
+
+### Could not connect to host
+
+This could be due to not closing the WebInterface or another instance of the node running and connected to the scanner.
