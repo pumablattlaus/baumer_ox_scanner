@@ -43,7 +43,15 @@ Add lib to path (or in bashrc):
 
 ## Usage <a name = "usage"></a>
 
-Just run the node:
+Use the launch file to start the node:
+
+```bash
+    roslaunch baumer_ox_scanner pointcloud.launch
+
+    roslaunch baumer_ox_scanner pointcloud_ee.launch # including transform to end effector
+```
+
+Or just run the node:
 
 ```bash
     rosrun baumer_ox_scanner scanner_pointcloud
@@ -55,6 +63,43 @@ For PointCloud2:
     rosrun baumer_ox_scanner scanner_pointcloud2
 ```
 *Pointcloud2 is not yet tested*
+
+### Transformations
+
+Transform PointCloud to PointCloud2:
+
+```bash
+    rosrun baumer_ox_scanner pointCloudToPointCloud2
+```
+
+Transform PointCloud2 into base_frame (output topic is /cloud_out):
+
+```bash
+    rosrun baumer_ox_scanner transform_publisher.py
+```
+
+### Assemble pointClouds stream into one PointCloud:
+#### From bag file:
+
+Creates a txt file of all points with "x,y,z" in each line.
+```bash
+    python3 scripts/assemble_cloud_from_bag.py
+```
+
+#### Live:
+Launch the assembler service:
+```bash
+    roslaunch baumer_ox_scanner pointcloud_assembler.launch
+```
+
+Call the service to assemble the pointClouds and publish the data as floats. Should be run after the scanner is finished (Uses the buffer set in pointcloud_assembler.launch)
+
+```bash
+    rosrun baumer_ox_scanner assemble_cloud.py
+```
+
+
+
 
 ## Problem Solving <a name = "problems"></a>
 

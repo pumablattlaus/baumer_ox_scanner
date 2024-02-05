@@ -47,7 +47,7 @@ public:
         std::string frame_id;
         nh.param<std::string>("frame_id", frame_id, "laser_scanner");
         std::string topic_name;
-        nh.param<std::string>("topic_name", topic_name, "point_cloud");
+        nh.param<std::string>("topic_name", topic_name, "point_cloud2");
 
         // Create a publisher object
         // laser_scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 50);

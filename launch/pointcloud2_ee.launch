@@ -1,0 +1,15 @@
+<launch>
+
+    <arg name="host" default="192.168.12.250" />
+    <arg name="frame_id" default="laser_scanner" />
+    <arg name="frame_id_source" default="mur620a/UR10_r/flange" />
+    <arg name="transform" default="0.0 0.0 0.0 1.57079632679 0.0 0.0" />
+
+    <node pkg="tf" type="static_transform_publisher" name="static_transform_pub_baumer" args="$(arg transform) $(arg frame_id_source) $(arg frame_id) 100" />
+
+    <param name="host" value="$(arg host)" />
+    <param name="frame_id" value="$(arg frame_id)" />
+    <node pkg="baumer_ox_scanner" type="scanner_pointcloud2" name="scanner_pointcloud2">
+    </node>
+
+</launch>
