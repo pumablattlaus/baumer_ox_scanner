@@ -12,7 +12,12 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   geometry_msgs
+  pcl_ros
+  pcl_conversions
 )
+
+# If you're directly using PCL functionalities not available in pcl_ros
+find_package(PCL 1.7 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -128,6 +133,7 @@ include_directories(
   OxSDK_V2_0_0/Cpp/OxApi/usr/include
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -146,6 +152,7 @@ include_directories(
 # add_executable(${PROJECT_NAME}_node src/baumer_ox_scanner_node.cpp)
 add_executable(oxapiexamples src/oxapiexamples.cpp)
 add_executable(scanner_pointcloud src/scanner_pointcloud.cpp)
+add_executable(scanner_pointcloud2 src/scanner_pointcloud2.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -163,6 +170,7 @@ add_executable(scanner_pointcloud src/scanner_pointcloud.cpp)
 # )
 target_link_libraries(oxapiexamples ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} )
 target_link_libraries(scanner_pointcloud ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} )
+target_link_libraries(scanner_pointcloud2 ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} ${PCL_LIBRARIES})
 
 #############
 ## Install ##

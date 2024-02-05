@@ -49,6 +49,13 @@ Just run the node:
     rosrun baumer_ox_scanner scanner_pointcloud
 ```
 
+For PointCloud2:
+
+```bash
+    rosrun baumer_ox_scanner scanner_pointcloud2
+```
+*Pointcloud2 is not yet tested*
+
 ## Problem Solving <a name = "problems"></a>
 
 ### Could not connect to host
