@@ -78,6 +78,16 @@ Transform PointCloud2 into base_frame (output topic is /cloud_out):
     rosrun baumer_ox_scanner transform_publisher.py
 ```
 
+### Throttle data
+
+To reduce the number of points, the point cloud is throttled to 50Hz.
+Default: sub_topic='/cloud_accumulated', pub_topic='cloud_high_rate'
+
+```bash
+    rosrun baumer_ox_scanner fake_cloud_high_rate_publisher.py
+```
+
+
 ### Assemble pointClouds stream into one PointCloud:
 #### From bag file:
 
@@ -98,6 +108,11 @@ Call the service to assemble the pointClouds and publish the data as floats. Sho
     rosrun baumer_ox_scanner assemble_cloud.py
 ```
 
+For publishing the assembled pointCloud as PointCloud2 instead of floats:
+
+```bash
+rosrun baumer_ox_scanner assemble_pub_cloud
+```
 
 
 
