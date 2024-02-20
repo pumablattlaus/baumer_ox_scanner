@@ -75,7 +75,7 @@ Transform PointCloud to PointCloud2:
 Transform PointCloud2 into base_frame (output topic is /cloud_out):
 
 ```bash
-    rosrun baumer_ox_scanner transform_publisher.py
+    rosrun baumer_ox_scanner transform_cloud_publisher.py
 ```
 
 ### Throttle data
