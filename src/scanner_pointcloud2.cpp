@@ -65,12 +65,12 @@ public:
         ros::Rate loop_rate(400); // 50 Hz, adjust as necessary
         while (ros::ok() && !gSignalStatus) {
             sensor_msgs::PointCloud2 point_msg;
-            point_msg.header.frame_id = frame_id;
             // Fill in other necessary fields such as angle_min, angle_max, range_min, range_max, etc.
             // ...
 
             // Read data from the sensor
             readSensorData(point_msg);
+            point_msg.header.frame_id = frame_id;
             point_cloud_pub.publish(point_msg);
 
             // ros::spinOnce();
