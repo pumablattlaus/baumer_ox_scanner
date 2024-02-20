@@ -2,6 +2,7 @@ import rosbag
 from sensor_msgs.msg import PointCloud2
 import sensor_msgs.point_cloud2 as pc2
 import numpy as np
+from transform_points_from_bag import transform_points_from_bag
 
 def accumulate_point_clouds(bag_file, pc_topics=['/your_point_cloud_topic']):
     # Open the ROS bag file
@@ -22,6 +23,10 @@ def accumulate_point_clouds(bag_file, pc_topics=['/your_point_cloud_topic']):
             points = np.array(list(gen))
             all_points = np.vstack((all_points, points))
 
+        # elif msg._type == 'geometry_msgs/Pose':
+        #     t_matrix = get_transformation_matrix(msg)
+
+
     # # Create a final PointCloud2 message from all accumulated points
     # final_cloud = PointCloud2()
     # # You might need to set header and other fields for final_cloud as per your requirement
@@ -39,6 +44,7 @@ if __name__ == '__main__':
     # Replace '/path/to/your/rosbag/file.bag' with the actual path to your ROS bag file
     bag_file_path = '/home/rosmatch/bags/tum/scanner_poses/in_base/pos4_quer_0.03.bag'
     all_points = accumulate_point_clouds(bag_file_path, pc_topics=['/cloud_out'])
+    all_points = transform_points_from_bag(bag_file_path, all_points, pose_topic='/robot_pose')
 
     # Write the accumulated points to a file
     ## Get bag_file_path without the extension

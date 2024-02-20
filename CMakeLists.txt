@@ -154,6 +154,7 @@ add_executable(oxapiexamples src/oxapiexamples.cpp)
 add_executable(scanner_pointcloud src/scanner_pointcloud.cpp)
 add_executable(scanner_pointcloud2 src/scanner_pointcloud2.cpp)
 add_executable(assemble_pub_cloud src/assemble_publish_cloud.cpp)
+add_executable(pose_publisher src/pose_publisher.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -173,6 +174,7 @@ target_link_libraries(oxapiexamples ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INI
 target_link_libraries(scanner_pointcloud ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} )
 target_link_libraries(scanner_pointcloud2 ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} ${PCL_LIBRARIES})
 target_link_libraries(assemble_pub_cloud ${catkin_LIBRARIES} ${PROJECT_LINK_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${BOOST_BEAST_FILES}  ${Boost_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(pose_publisher ${catkin_LIBRARIES})
 
 #############
 ## Install ##

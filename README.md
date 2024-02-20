@@ -18,12 +18,12 @@ ROS Package for Baumer OXP200 scanner unsing C++ API. Publishes a PointCloud in 
 3. catkin build
 4. source devel/setup.bash
 
-
 ### Prerequisites
 
 ROS Noetic has to be set up.
 
 ### Installing
+
 #### C++ API for ubuntu
 
 **API already part of package**. In case you want to install it from source (Installing from LibOxApi_02-00-00.tar.gz):
@@ -62,7 +62,8 @@ For PointCloud2:
 ```bash
     rosrun baumer_ox_scanner scanner_pointcloud2
 ```
-*Pointcloud2 is not yet tested*
+
+Pointcloud2 is *not yet tested*
 
 ### Transformations
 
@@ -87,17 +88,21 @@ Default: sub_topic='/cloud_accumulated', pub_topic='cloud_high_rate'
     rosrun baumer_ox_scanner fake_cloud_high_rate_publisher.py
 ```
 
+### Assemble pointClouds stream into one PointCloud
 
-### Assemble pointClouds stream into one PointCloud:
-#### From bag file:
+#### From bag file
 
 Creates a txt file of all points with "x,y,z" in each line.
+Transforms all points by transformation given via pose topic (default: "/robot_pose").
+
 ```bash
     python3 scripts/assemble_cloud_from_bag.py
 ```
 
-#### Live:
+#### Live
+
 Launch the assembler service:
+
 ```bash
     roslaunch baumer_ox_scanner pointcloud_assembler.launch
 ```
@@ -113,8 +118,6 @@ For publishing the assembled pointCloud as PointCloud2 instead of floats:
 ```bash
 rosrun baumer_ox_scanner assemble_pub_cloud
 ```
-
-
 
 ## Problem Solving <a name = "problems"></a>
 

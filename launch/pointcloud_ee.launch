@@ -4,12 +4,23 @@
     <arg name="frame_id" default="laser_scanner" />
     <arg name="frame_id_source" default="mur620a/UR10_r/flange" />
     <arg name="transform" default="0.0 0.0 0.0 1.57079632679 0.0 0.0" />
+    <arg name="pub_transform" default="true"/>
+    <arg name="pub_from" default="map" />
+    <arg name="pub_to" default="mur620/base" />
+    <arg name="pub_topic" default="/robot_pose" />
 
     <node pkg="tf" type="static_transform_publisher" name="static_transform_pub_baumer" args="$(arg transform) $(arg frame_id_source) $(arg frame_id) 100" />
 
     <param name="host" value="$(arg host)" />
     <param name="frame_id" value="$(arg frame_id)" />
     <node pkg="baumer_ox_scanner" type="scanner_pointcloud" name="scanner_pointcloud">
+    </node>
+
+    <node pkg="baumer_ox_scanner" type="pose_publisher" name="pose_publisher" if="$(arg pub_transform)">
+        <param name="from_frame" value="$(arg pub_from)" />
+        <param name="to_frame" value="$(arg pub_to)" />
+        <param name="pose_topic" value="$(arg pub_topic)" />
+        <param name="is_stamped" value="true" />
     </node>
 
 </launch>
