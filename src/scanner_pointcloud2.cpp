@@ -36,18 +36,16 @@ public:
         ros::NodeHandle nh;
 
         // Get ROS parameters
-        // std::size_t count{0};
         std::string host;
-        // int udpPort;
-        nh.param<std::string>("host", host, "192.168.0.250");
-        // nh.param<int>("udp_port", udpPort, 12345);
-        // bool udp; // use UDP protocol
-        // nh.param<bool>("udp", udp, false);
+        nh.param<std::string>("host", host, "192.168.0.250");        
 
         std::string frame_id;
         nh.param<std::string>("frame_id", frame_id, "laser_scanner");
         std::string topic_name;
         nh.param<std::string>("topic_name", topic_name, "point_cloud2");
+        //rate:
+        std::float_t rate;
+        nh.param<std::float_t>("rate", rate, 50.0); //400
 
         // Create a publisher object
         // laser_scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 50);
@@ -62,7 +60,7 @@ public:
         ROS_INFO("NOT using UDP.");
 
         // Main loop to read and publish laser scan data
-        ros::Rate loop_rate(400); // 50 Hz, adjust as necessary
+        ros::Rate loop_rate(rate); // 50 Hz, adjust as necessary
         while (ros::ok() && !gSignalStatus) {
             sensor_msgs::PointCloud2 point_msg;
             // Fill in other necessary fields such as angle_min, angle_max, range_min, range_max, etc.

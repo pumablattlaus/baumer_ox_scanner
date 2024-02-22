@@ -19,7 +19,7 @@ class keyence_transform():
     def __init__(self):
         rospy.init_node('keyence_transform_node')
         self.listener = tf.TransformListener()
-        self.base_frame=rospy.get_param("~base_frame", "mur620a/base_link")
+        self.base_frame=rospy.get_param("~base_frame", "robot_base_footprint")
         sensor_topic=rospy.get_param("~sensor_topic", "/point_cloud2")
         
         rospy.sleep(1)

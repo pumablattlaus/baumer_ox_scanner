@@ -63,8 +63,6 @@ For PointCloud2:
     rosrun baumer_ox_scanner scanner_pointcloud2
 ```
 
-Pointcloud2 is *not yet tested*
-
 ### Transformations
 
 Transform PointCloud to PointCloud2:
@@ -79,9 +77,9 @@ Transform PointCloud2 into base_frame (output topic is /cloud_out):
     rosrun baumer_ox_scanner transform_cloud_publisher.py
 ```
 
-### Throttle data
+### Republish data
 
-To reduce the number of points, the point cloud is throttled to 50Hz.
+To simulate continous data for the accumaulated pointcloud, the cloud is republished at 50Hz.
 Default: sub_topic='/cloud_accumulated', pub_topic='cloud_high_rate'
 
 ```bash
