@@ -1,0 +1,26 @@
+<launch>
+    <group ns="line_scanner">
+        <!-- transformation flange to scanner, publish pointcloud2 and publish trafo map to base_footprint -->
+        <include file="$(find baumer_ox_scanner)/launch/pointcloud2_ee.launch" />
+
+        <node pkg="baumer_ox_scanner" type="transform_cloud_publisher.py" name="transform_cloud_base">
+            <!-- <param name="base_frame" value="robot_base_footprint" /> -->
+        </node>
+
+        <node pkg="baumer_ox_scanner" type="assemble_pub_cloud" name="assemble_pub_cloud">
+            <!-- <param name="cloud_frame" value="robot_map" /> -->
+        </node>
+
+        <node pkg="baumer_ox_scanner" type="transform_cloud_publisher.py" name="transform_cloud_map">
+            <param name="base_frame" value="robot_map" />
+            <param name="sensor_topic" value="cloud_accumulated" />
+            <remap from="cloud_out" to="/line_scanner/cloud_accumulated_map" />
+        </node>
+
+        <node pkg="baumer_ox_scanner" type="save_cloud_to_txt.py" name="save_cloud_to_txt">
+            <param name="txt_file_name" value="/home/robotab/Desktop/line_scanner_pc.txt" />
+            <remap from="cloud_accumulated" to="/line_scanner/cloud_accumulated_map" />
+        </node>
+    </group>
+
+</launch>

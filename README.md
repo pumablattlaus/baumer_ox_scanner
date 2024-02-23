@@ -5,6 +5,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
+- [**DC 2024**](#dc24)
 - [Problem Solving](#problems)
 
 ## About <a name = "about"></a>
@@ -116,6 +117,32 @@ For publishing the assembled pointCloud as PointCloud2 instead of floats:
 ```bash
 rosrun baumer_ox_scanner assemble_pub_cloud
 ```
+
+## Usage in experiments for Digital Concrete 24 <a name = "dc24"></a>
+
+This chapter explains how the data for the experiments is recorded.
+Instead of launching several files, one launch file is sufficient.
+
+```bash
+    roslaunch baumer_ox_scanner dc24_paper_launch_all.launch
+```
+
+Recording of the whole pointcloud is started and stopped via service calls:
+
+```bash
+    rosservice call /line_scanner/assemble/start
+    rosservice call /line_scanner/assemble/finish
+```
+
+When finish is called, the pointcloud is saved to the **Desktop** of the robot as a **txt-file**.
+
+The transformation from the robot_map-frame to the UR-base frame:
+
+```bash
+    rosrun tf tf_echo robot_map robot_arm_base
+```
+
+After getting the transformation from the ground_truth to the robot_map, the printed points can thus be transformed from the ground_truth frame to the UR-base-frame.
 
 ## Problem Solving <a name = "problems"></a>
 

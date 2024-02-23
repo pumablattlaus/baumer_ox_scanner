@@ -21,6 +21,7 @@ class PointCloudAssembler:
 
         # Variable to store the assembled point cloud
         self.assembled_cloud = None
+        self.cloud_frame = "assembled_cloud"
 
         # Flag to control the assembly process
         self.assembling = False
@@ -36,6 +37,8 @@ class PointCloudAssembler:
                 pcl.fromROSMsg(msg, cloud)
                 self.assembled_cloud += cloud
 
+            self.cloud_frame = msg.header.frame_id
+
     def start_assembly(self, req):
         # Service callback to start the assembly process
         self.assembling = True
@@ -48,7 +51,7 @@ class PointCloudAssembler:
         if self.assembled_cloud is not None:
             assembled_msg = pcl.toROSMsg(self.assembled_cloud)
             assembled_msg.header.stamp = rospy.Time.now()
-            assembled_msg.header.frame_id = "assembled_cloud"
+            assembled_msg.header.frame_id = self.cloud_frame
             self.pub.publish(assembled_msg)
             return TriggerResponse(success=True, message="Assembly finished and published.")
         else:

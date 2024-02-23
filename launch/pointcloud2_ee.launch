@@ -11,6 +11,9 @@
     <arg name="pub_to" default="robot_base_footprint" />
     <arg name="pub_topic" default="/robot_pose" />
 
+    <arg name="rate" default="10"/>
+
+    <!-- Launch -->
     <node pkg="tf" type="static_transform_publisher" name="static_transform_pub_baumer" args="$(arg transform) $(arg frame_id_source) $(arg frame_id) 100" />
 
     <param name="host" value="$(arg host)" />
@@ -21,7 +24,7 @@
     <node pkg="baumer_ox_scanner" type="pose_publisher" name="pose_publisher" if="$(arg pub_transform)">
         <param name="from_frame" value="$(arg pub_from)" />
         <param name="to_frame" value="$(arg pub_to)" />
-        <param name="rate" value="10" />
+        <param name="rate" value="$(arg rate)" />
         <param name="pose_topic" value="$(arg pub_topic)" />
         <param name="is_stamped" value="true" />
     </node>

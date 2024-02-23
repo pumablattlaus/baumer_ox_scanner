@@ -15,7 +15,7 @@ public:
         ros::NodeHandle nh;
 
         // Get cloud frame from parameter server
-        nh.param<std::string>("cloud_frame", cloud_accumulated_frame, "mur620a/base_link"); //TODO: Use in transformation in the end
+        // nh.param<std::string>("cloud_frame", cloud_accumulated_frame, "mur620a/base_link"); //TODO: Use in transformation in the end
 
         // Set time interval for throtteling
         time_interval = 0.2;
@@ -24,14 +24,14 @@ public:
         last_time = ros::Time(0);
 
         // Subscriber to point cloud topic
-        cloud_sub = nh.subscribe("/cloud_out", 10, &PointCloudAssembler::cloudCallback, this);
+        cloud_sub = nh.subscribe("cloud_out", 10, &PointCloudAssembler::cloudCallback, this);
 
         // Publisher for the accumulated point cloud
-        cloud_pub = nh.advertise<sensor_msgs::PointCloud2>("/cloud_accumulated", 10, true);
+        cloud_pub = nh.advertise<sensor_msgs::PointCloud2>("cloud_accumulated", 10, true);
 
         // Services to start and stop point cloud assembly
-        start_service = nh.advertiseService("start", &PointCloudAssembler::startAssembly, this);
-        finish_service = nh.advertiseService("finish", &PointCloudAssembler::finishAssembly, this);
+        start_service = nh.advertiseService("assemble/start", &PointCloudAssembler::startAssembly, this);
+        finish_service = nh.advertiseService("assemble/finish", &PointCloudAssembler::finishAssembly, this);
 
         // Initialize assembling flag
         assembling = false;
